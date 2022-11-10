@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\components\camera_input.cpp">
+      <Filter>src\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\components\scene_input.cpp">
+      <Filter>src\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\components\simple_scene.cpp">
+      <Filter>src\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\components\text_renderer.cpp">
+      <Filter>src\components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\engine.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\gpu\frame_buffer.cpp">
+      <Filter>src\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\gpu\gpu_buffers.cpp">
+      <Filter>src\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\gpu\mesh.cpp">
+      <Filter>src\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\gpu\shader.cpp">
+      <Filter>src\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\gpu\texture2D.cpp">
+      <Filter>src\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\managers\texture_manager.cpp">
+      <Filter>src\core\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\window\input_controller.cpp">
+      <Filter>src\core\window</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\window\window_callbacks.cpp">
+      <Filter>src\core\window</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\window\window_object.cpp">
+      <Filter>src\core\window</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\world.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab1\lab1.cpp">
+      <Filter>src\lab_m1\lab1</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab2\lab2.cpp">
+      <Filter>src\lab_m1\lab2</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab3\lab3.cpp">
+      <Filter>src\lab_m1\lab3</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab3\lab3_vis2D.cpp">
+      <Filter>src\lab_m1\lab3</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab3\object2D.cpp">
+      <Filter>src\lab_m1\lab3</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab4\lab4.cpp">
+      <Filter>src\lab_m1\lab4</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab5\lab5.cpp">
+      <Filter>src\lab_m1\lab5</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab6\lab6.cpp">
+      <Filter>src\lab_m1\lab6</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab7\lab7.cpp">
+      <Filter>src\lab_m1\lab7</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab8\lab8.cpp">
+      <Filter>src\lab_m1\lab8</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab9\lab9.cpp">
+      <Filter>src\lab_m1\lab9</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\utils\gl_utils.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\utils\text_utils.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lab_m1\Tema1\Tema1.cpp">
+      <Filter>src\lab_m1\Tema1</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\components\camera.h">
+      <Filter>src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\components\camera_input.h">
+      <Filter>src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\components\exports.h">
+      <Filter>src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\components\scene_input.h">
+      <Filter>src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\components\simple_scene.h">
+      <Filter>src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\components\text_renderer.h">
+      <Filter>src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\components\transform.h">
+      <Filter>src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\engine.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\gpu\frame_buffer.h">
+      <Filter>src\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\gpu\gpu_buffers.h">
+      <Filter>src\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\gpu\mesh.h">
+      <Filter>src\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\gpu\particle_effect.h">
+      <Filter>src\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\gpu\shader.h">
+      <Filter>src\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\gpu\ssbo.h">
+      <Filter>src\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\gpu\texture2D.h">
+      <Filter>src\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\gpu\vertex_format.h">
+      <Filter>src\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\managers\resource_path.h">
+      <Filter>src\core\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\managers\texture_manager.h">
+      <Filter>src\core\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\window\input_controller.h">
+      <Filter>src\core\window</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\window\window_callbacks.h">
+      <Filter>src\core\window</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\window\window_object.h">
+      <Filter>src\core\window</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\core\world.h">
+      <Filter>src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab1\lab1.h">
+      <Filter>src\lab_m1\lab1</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab2\lab2.h">
+      <Filter>src\lab_m1\lab2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab3\lab3.h">
+      <Filter>src\lab_m1\lab3</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab3\lab3_vis2D.h">
+      <Filter>src\lab_m1\lab3</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab3\object2D.h">
+      <Filter>src\lab_m1\lab3</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab3\transform2D.h">
+      <Filter>src\lab_m1\lab3</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab4\lab4.h">
+      <Filter>src\lab_m1\lab4</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab4\transform3D.h">
+      <Filter>src\lab_m1\lab4</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab5\lab5.h">
+      <Filter>src\lab_m1\lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab5\lab_camera.h">
+      <Filter>src\lab_m1\lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab6\lab6.h">
+      <Filter>src\lab_m1\lab6</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab6\shaders\FragmentShader.glsl">
+      <Filter>src\lab_m1\lab6\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab6\shaders\VertexShader.glsl">
+      <Filter>src\lab_m1\lab6\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab7\lab7.h">
+      <Filter>src\lab_m1\lab7</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab7\shaders\FragmentShader.glsl">
+      <Filter>src\lab_m1\lab7\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab7\shaders\VertexShader.glsl">
+      <Filter>src\lab_m1\lab7\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab8\lab8.h">
+      <Filter>src\lab_m1\lab8</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab8\shaders\FragmentShader.glsl">
+      <Filter>src\lab_m1\lab8\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab8\shaders\VertexShader.glsl">
+      <Filter>src\lab_m1\lab8\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab9\lab9.h">
+      <Filter>src\lab_m1\lab9</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab9\shaders\FragmentShader.glsl">
+      <Filter>src\lab_m1\lab9\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab9\shaders\VertexShader.glsl">
+      <Filter>src\lab_m1\lab9\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\lab_m1\lab_list.h">
+      <Filter>src\lab_m1</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\utils\gl_utils.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\utils\glm_utils.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\utils\math_utils.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\utils\memory_utils.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\utils\text_utils.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\src\utils\window_utils.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lab_m1\Tema1\Tema1.h">
+      <Filter>src\lab_m1\Tema1</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\razva\Downloads\gfx-framework-master1\gfx-framework-master\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{E16C4BE4-1437-38BC-A53F-B4336A28D356}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\components">
+      <UniqueIdentifier>{2EDA4964-9E9C-34FB-97F7-6C7526AEF1BB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{2C556E8A-D080-3E38-9B05-1D7891C0FFC0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core\gpu">
+      <UniqueIdentifier>{A37E6D93-E031-313B-8A45-9785F7D633F4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core\managers">
+      <UniqueIdentifier>{70DAD82F-5D83-3F2E-95CE-DFEFB279873B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core\window">
+      <UniqueIdentifier>{113391F8-9018-39ED-9462-4DB742021134}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1">
+      <UniqueIdentifier>{FA895005-AA55-3967-BA0F-4EB423F8E1FE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\lab1">
+      <UniqueIdentifier>{0EBA55B6-BFC6-3A11-B9DF-5B3C37838AB2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\lab2">
+      <UniqueIdentifier>{7E36191E-F0AD-35A7-96CF-23EE669CF37E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\lab3">
+      <UniqueIdentifier>{5E21B6A4-47A7-355C-959F-F52BAAA7173F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\lab4">
+      <UniqueIdentifier>{A2D1BB18-84FB-324D-86D1-8ADA62B41450}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\lab5">
+      <UniqueIdentifier>{75BFBE7F-E9AE-3F13-AEFB-0E55C057F41A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\lab6">
+      <UniqueIdentifier>{BEBA9F00-2FED-30D7-9D9C-94352280E043}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\lab6\shaders">
+      <UniqueIdentifier>{EC1B1D4E-9E60-3B5A-93C5-B06F233A401A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\lab7">
+      <UniqueIdentifier>{19C572D1-39F1-3B55-A2C2-68F6EBD17D46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\lab7\shaders">
+      <UniqueIdentifier>{034FBAC4-7AB5-3960-9FE3-4BB68D924547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\lab8">
+      <UniqueIdentifier>{4A0E6C8A-BB13-3DA5-BBA4-22E72C9D2620}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\lab8\shaders">
+      <UniqueIdentifier>{D90FD242-5123-3570-863E-A49297576D44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\lab9">
+      <UniqueIdentifier>{ACAEA1AF-5A77-3E19-AB75-6BB58F954E41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\lab9\shaders">
+      <UniqueIdentifier>{7150E62F-63AF-3C2B-93E6-A134940557D2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils">
+      <UniqueIdentifier>{57CDB09C-60EF-3004-9602-F5C4C7D3CE33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lab_m1\Tema1">
+      <UniqueIdentifier>{f6ac5703-74f0-4b67-b2ea-06b5d70c264c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
