@@ -55,11 +55,19 @@ void Tema1::Init()
     centruAripa2X = 0;
     centruAripa2Y = 0;
     scale = 8; //cu cat este scalata rata
-    speedX = 50; 
-    speedY = 50;
-    countEscape = 0;
+    vitezaInitiala = 30;
+    speedX = vitezaInitiala;
+    speedY = vitezaInitiala;
     countEscape = 0;
     numarRate = 1;
+    numarVieti = 3;
+    numarGloante = 3;
+    scor = 0;
+    scorMax = 50;
+    aMurit = false;
+    aScapat = false;
+    minusViata = true;
+    GAMEOVER = false;
 
     {
         //aripa din stanga a unei rate
@@ -109,7 +117,6 @@ void Tema1::Init()
         for (int i = 0; i <= 30; i++) { //vom forma un cerc cu ajutorul a 30 de triunghiuri
             verticesCap.push_back(VertexFormat( glm::vec3(x + (radius * cos((float)i * 2 * M_PI / 30)), y + (radius * sin((float)i * 2 * M_PI / 30)), 0), glm::vec3(0.26, 0.45, 0.29), glm::vec3(0.2, 0.8, 0.6)));
         }
-
         vector<unsigned int> indicesCap;
         for (int i = 0; i <= 30; i++) {
             indicesCap.push_back(0);
@@ -117,6 +124,20 @@ void Tema1::Init()
             indicesCap.push_back(i + 2);
         }
         CreateMesh("cap", verticesCap, indicesCap);
+
+        //vietile
+        vector <VertexFormat> verticesVieti;
+        verticesVieti.push_back(VertexFormat(glm::vec3(0, 0, 0), glm::vec3(1, 0, 0), glm::vec3(0.2, 0.6, 0.8)));//varful tuturor triunghiurilor ce vor forma cercul
+        for (int i = 0; i <= 30; i++) { //vom forma un cerc cu ajutorul a 30 de triunghiuri
+            verticesVieti.push_back(VertexFormat(glm::vec3(x + (radius * cos((float)i * 2 * M_PI / 30)), y + (radius * sin((float)i * 2 * M_PI / 30)), 0), glm::vec3(1, 0, 0), glm::vec3(0.2, 0.8, 0.6)));
+        }
+        vector<unsigned int> indicesVieti;
+        for (int i = 0; i <= 30; i++) {
+            indicesVieti.push_back(0);
+            indicesVieti.push_back(i + 1);
+            indicesVieti.push_back(i + 2);
+        }
+        CreateMesh("vieti", verticesVieti, indicesVieti);
 
         //ciocul unei rate
         vector<VertexFormat> verticesCioc
@@ -146,19 +167,28 @@ void Tema1::Init()
         };
         CreateMesh("iarba", verticesIarba, indicesIarba);
 
-        vector<VertexFormat> verticesHit
+        //scor
+        vector<VertexFormat> verticesScor
         {
-            VertexFormat(glm::vec3(-5, -4, 0), glm::vec3(0, 1, 0), glm::vec3(0.2, 0.8, 0.6)),
-            VertexFormat(glm::vec3(-5, 4, 0), glm::vec3(0, 1, 0), glm::vec3(0.2, 0.8, 0.6)),
-            VertexFormat(glm::vec3(8, 4, 0), glm::vec3(0, 1, 0), glm::vec3(0.2, 0.8, 0.6)),
-            VertexFormat(glm::vec3(8, -4, 0), glm::vec3(0, 1, 0), glm::vec3(0.2, 0.8, 0.6))
+            VertexFormat(glm::vec3(0, 0, 0), glm::vec3(1, 0, 0), glm::vec3(0.2, 0.8, 0.6)),
+            VertexFormat(glm::vec3(0, 8, 0), glm::vec3(1, 0, 0), glm::vec3(0.2, 0.8, 0.6)),
+            VertexFormat(glm::vec3(50, 8, 0), glm::vec3(1, 0, 0), glm::vec3(0.2, 0.8, 0.6)),
+            VertexFormat(glm::vec3(50, 0, 0), glm::vec3(1, 0, 0), glm::vec3(0.2, 0.8, 0.6))
         };
-        vector<unsigned int> indicesHit =
+        CreateMesh("scor", verticesScor, indicesIarba);
+
+        //gloante
+        vector<VertexFormat> verticesGloante
+        {
+            VertexFormat(glm::vec3(0, 4, 0), glm::vec3(0, 1, 0), glm::vec3(0.2, 0.8, 0.6)),
+            VertexFormat(glm::vec3(-3, 0, 0), glm::vec3(0, 1, 0), glm::vec3(0.2, 0.8, 0.6)),
+            VertexFormat(glm::vec3(3, 0, 0), glm::vec3(0, 1, 0), glm::vec3(0.2, 0.8, 0.6)),
+        };
+        vector<unsigned int> indicesGloante =
         {
             0, 1, 2,
-            0, 2, 3,
         };
-        CreateMesh("hitbox", verticesHit, indicesHit);
+        CreateMesh("gloante", verticesGloante, indicesGloante);
     }
 }
 
@@ -239,55 +269,110 @@ void Tema1::Update(float deltaTimeSeconds)
     //initializare matrici
     modelMatrix = glm::mat3(1);  //matricea ratei
     modelMatrixCap = glm::mat3(1);
-    modelMatrixA1 = glm::mat3(1);
-    modelMatrixA2 = glm::mat3(1);
-    modelMatrixIarba = glm::mat3(26);
-    modelMatrixVieti = glm::mat3(20);
-    modelMatrixVieti *= transform2D::Translate(3, 33);
-    modelMatrixHit = glm::mat3(1);
+    modelMatrixA1 = glm::mat3(1); //aripa stanga
+    modelMatrixA2 = glm::mat3(1); //aripa dreapta
+    modelMatrixIarba = glm::mat3(26); //iarba
+    modelMatrixVieta1 = glm::mat3(15); //v1
+    modelMatrixVieta1 *= transform2D::Translate(3, 45);
+    modelMatrixVieta2 = glm::mat3(15); //v2
+    modelMatrixVieta2 *= transform2D::Translate(7, 45);
+    modelMatrixVieta3 = glm::mat3(15); //v3
+    modelMatrixVieta3 *= transform2D::Translate(11, 45);
+    modelMatrixScorMax = glm::mat3(1); //scorMax
+    modelMatrixScorMax *= transform2D::Translate(resolutionX - 300, resolutionY - 100);
+    modelMatrixScorMax *= transform2D::Scale(5, 5);
+    modelMatrixScor = glm::mat3(1); //scor
+    modelMatrixScor *= transform2D::Translate(resolutionX - 300, resolutionY - 100);
+    modelMatrixScor *= transform2D::Scale((5 * float(scor)) / float(scorMax), 5);
+    modelMatrixG1 = glm::mat3(7);
+    modelMatrixG1 *= transform2D::Translate(6, 87);
+    modelMatrixG2 = glm::mat3(7);
+    modelMatrixG2 *= transform2D::Translate(15, 87);
+    modelMatrixG3 = glm::mat3(7);
+    modelMatrixG3 *= transform2D::Translate(24, 87);
+    if (numarGloante < 3) {
+        modelMatrixG3 *= transform2D::Translate(1000, 1000);
+    }
+    if (numarGloante < 2) {
+        modelMatrixG2 *= transform2D::Translate(1000, 1000);
+    }
+    if (numarGloante < 1) {
+        modelMatrixG1 *= transform2D::Translate(1000, 1000);
+    }
+    if (numarVieti < 3) {
+        modelMatrixVieta3 *= transform2D::Translate(1000, 1000);
+    }
+    if (numarVieti < 2) {
+        modelMatrixVieta2 *= transform2D::Translate(1000, 1000);
+    }
+    if (numarVieti < 1) {
+        modelMatrixVieta1 *= transform2D::Translate(1000, 1000);
+        GAMEOVER = true;
+    }
 
+
+    /*cout << "nr vieti " << numarVieti << endl;
+    cout << "nr gloante " << numarGloante << endl;*/
+
+    /*cout << speedX << " viteza" << endl;
+    cout << countEscape << " merge secundele" << endl;*/
 
     //ciocniri rata
-    if(translateX * scale > resolutionX) {
+    if(translateX * scale > resolutionX - 15) {
         unghi = (180 - unghi);
         modelMatrix *= transform2D::Rotate(RADIANS(unghi));
-        cout << "lovit dreapta" << endl;
+        //cout << "lovit dreapta" << endl;
     }
-    if (translateX < 0) {;
+    if (translateX < 0) {
         unghi = (180 - unghi);
         modelMatrix *= transform2D::Rotate(RADIANS(unghi));
-        cout << "lovit stanga " << endl;
+        //cout << "lovit stanga " << endl;
     }
     if (translateY * scale > resolutionY) {
-        if (countEscape < 30) {
-            unghi = -unghi;
-            modelMatrix *= transform2D::Rotate(RADIANS(unghi));
-            cout << "lovit sus" << endl;
-        }
-    }
-    if (translateY < 0) {
         unghi = -unghi;
         modelMatrix *= transform2D::Rotate(RADIANS(unghi));
-        cout << "lovit jos" << endl;
+        //cout << "lovit sus" << endl;
     }
+    if (translateY < 0) {
+        if (!aMurit) {
+            unghi = -unghi;
+            modelMatrix *= transform2D::Rotate(RADIANS(unghi));
+            //cout << "lovit jos" << endl;
+        }
+    }
+
+    /*cout << "scapat " << aScapat << endl;
+    cout << "murit " << aMurit << endl;*/
 
     //escape
     countEscape += deltaTimeSeconds;
-    if (countEscape >= 5) {
+    if ((countEscape >= 5 || numarGloante <= 0) && !aMurit) {
         speedX = 0;
         unghi = 90;
-        if (translateY * scale > resolutionY + 10) {
-            countEscape = 0;
-            translateX = 0;
-            translateY = 0;
-            speedX = 50;
-            unghi = rand() % (25 - 75 + 1) + 25;
-            numarRate++;
-            //cout << unghi << " UNG" << endl;
+        aMurit = false;
+        //aScapat = true;
+        if (minusViata) {
+            numarVieti--;
+            minusViata = false;
         }
     }
-    /*cout << translateX << " translateX" << endl;
-    cout << translateY << " translatey" << endl;*/
+
+    //respawn rata
+    if (translateY * scale < -200 || translateY * scale > resolutionY + 200) {
+        countEscape = 0;
+        translateX = 0;
+        translateY = 0;
+        speedX = vitezaInitiala + numarRate / 5 * 20;
+        speedY = vitezaInitiala + numarRate / 5 * 20;
+        unghi = rand() % (25 - 75 + 1) + 25;
+        /*cout << numarRate << " nrRate " << endl;
+        cout << speedX << " speed " << endl;*/
+        numarRate++;
+        numarGloante = 3;
+        aMurit = false;
+        //aScapat = false;
+        minusViata = true;
+    }
  
     //miscarea ratei
     modelMatrix *= transform2D::Scale(scale, scale);
@@ -295,9 +380,6 @@ void Tema1::Update(float deltaTimeSeconds)
     translateY += speedY * deltaTimeSeconds * sin(RADIANS(unghi));
     modelMatrix *= transform2D::Translate(translateX, translateY);
     modelMatrix *= transform2D::Rotate(RADIANS(unghi));
-
-    //hitbox
-    modelMatrixHit *= modelMatrix;
 
     //pozitionare cap
     modelMatrixCap *= modelMatrix;
@@ -307,7 +389,7 @@ void Tema1::Update(float deltaTimeSeconds)
     modelMatrixA1 *= modelMatrix;
     angularStep += deltaTimeSeconds * 10;
     counter += deltaTimeSeconds;
-    if (counter >= 0.8) {
+    if (counter >= 0.2) {
         angularStep = -angularStep;
         counter = 0.0;
         counter += deltaTimeSeconds;
@@ -324,7 +406,7 @@ void Tema1::Update(float deltaTimeSeconds)
     modelMatrixA2 *= modelMatrix;
     angularStep2 -= deltaTimeSeconds * 10;
     counter2 += deltaTimeSeconds;
-    if (counter2 >= 0.8) {
+    if (counter2 >= 0.2) {
         angularStep2 = -angularStep;
         counter2 = 0.0;
         counter2 += deltaTimeSeconds;
@@ -338,14 +420,23 @@ void Tema1::Update(float deltaTimeSeconds)
     modelMatrixA2 *= transform2D::Translate(-centruAripa2X, -centruAripa2Y);
 
     //randare obiecte
-    //RenderMesh2D(meshes["iarba"], shaders["VertexColor"], modelMatrixIarba);
-    RenderMesh2D(meshes["aripa1"], shaders["VertexColor"], modelMatrixA1);
-    RenderMesh2D(meshes["aripa2"], shaders["VertexColor"], modelMatrixA2);
-    RenderMesh2D(meshes["cap"], shaders["VertexColor"], modelMatrixCap);
-    RenderMesh2D(meshes["corp"], shaders["VertexColor"], modelMatrix);
-    RenderMesh2D(meshes["cioc"], shaders["VertexColor"], modelMatrix);
-    RenderMesh2D(meshes["cap"], shaders["VertexColor"], modelMatrixVieti);
-    RenderMesh2D(meshes["hitbox"], shaders["VertexColor"], modelMatrixHit);
+
+    if (!GAMEOVER && scor != scorMax) {
+        RenderMesh2D(meshes["iarba"], shaders["VertexColor"], modelMatrixIarba);
+        RenderMesh2D(meshes["aripa1"], shaders["VertexColor"], modelMatrixA1);
+        RenderMesh2D(meshes["aripa2"], shaders["VertexColor"], modelMatrixA2);
+        RenderMesh2D(meshes["cap"], shaders["VertexColor"], modelMatrixCap);
+        RenderMesh2D(meshes["corp"], shaders["VertexColor"], modelMatrix);
+        RenderMesh2D(meshes["cioc"], shaders["VertexColor"], modelMatrix);
+        RenderMesh2D(meshes["vieti"], shaders["VertexColor"], modelMatrixVieta1);
+        RenderMesh2D(meshes["vieti"], shaders["VertexColor"], modelMatrixVieta2);
+        RenderMesh2D(meshes["vieti"], shaders["VertexColor"], modelMatrixVieta3);
+        RenderMesh2D(meshes["scor"], shaders["VertexColor"], modelMatrixScor);
+        RenderMesh2D(meshes["iarba"], shaders["VertexColor"], modelMatrixScorMax);
+        RenderMesh2D(meshes["gloante"], shaders["VertexColor"], modelMatrixG1);
+        RenderMesh2D(meshes["gloante"], shaders["VertexColor"], modelMatrixG2);
+        RenderMesh2D(meshes["gloante"], shaders["VertexColor"], modelMatrixG3);
+    }
 }
 
 
@@ -388,10 +479,22 @@ void Tema1::OnMouseBtnPress(int mouseX, int mouseY, int button, int mods)
 {
     // Add mouse button press event
     if (button == 1) {
-        cout << "mouseX " << mouseX;
-        cout << " mouseY " << mouseY << endl;
+        /*cout << "mouseX " << mouseX;
+        cout << " mouseY " <<resolutionY - mouseY << endl;
         cout << " translateX " << scale * translateX;
-        cout << " translateY " << scale * translateY << endl;
+        cout << " translateY " << scale * translateY << endl;*/
+        if (mouseX<(translateX * scale + 50) && mouseX>(translateX * scale - 50) && (resolutionY - mouseY) < (translateY * scale + 50) && (resolutionY - mouseY) > (translateY * scale - 50)) {
+                aMurit = true;
+                //cout << "hit" << endl;
+                unghi = -90;
+                speedX = 0;
+                scor++;
+                numarGloante--;
+                //cout << "scor " << scor << endl;
+        }
+        else {
+            numarGloante--;
+        }
     }
 }
 

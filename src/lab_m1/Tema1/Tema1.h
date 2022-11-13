@@ -36,8 +36,14 @@ namespace m1
         glm::mat3 modelMatrixA1;
         glm::mat3 modelMatrixA2;
         glm::mat3 modelMatrixIarba;
-        glm::mat3 modelMatrixVieti;
-        glm::mat3 modelMatrixHit;
+        glm::mat3 modelMatrixVieta1;
+        glm::mat3 modelMatrixVieta2;
+        glm::mat3 modelMatrixVieta3;
+        glm::mat3 modelMatrixScorMax;
+        glm::mat3 modelMatrixScor;
+        glm::mat3 modelMatrixG1;
+        glm::mat3 modelMatrixG2;
+        glm::mat3 modelMatrixG3;
         float refX, refY;
         float resolutionX, resolutionY;
         float translateX, translateY;
@@ -54,6 +60,15 @@ namespace m1
         float countEscape;
         float countEscape2;
         int numarRate;
+        int numarVieti;
+        int numarGloante;
+        int scor;
+        int scorMax;
+        float vitezaInitiala;
+        bool aMurit;
+        bool aScapat;
+        bool minusViata;
+        bool GAMEOVER;
 
         // TODO(student): If you need any other class variables, define them here.
 
