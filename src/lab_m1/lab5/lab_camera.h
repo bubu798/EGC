@@ -8,17 +8,17 @@ namespace implemented
 {
     class Camera
     {
-     public:
+    public:
         Camera()
         {
-            position    = glm::vec3(0, 2, 5);
-            forward     = glm::vec3(0, 0, -1);
-            up          = glm::vec3(0, 1, 0);
-            right       = glm::vec3(1, 0, 0);
+            position = glm::vec3(0, 2, 5);
+            forward = glm::vec3(0, 0, -1);
+            up = glm::vec3(0, 1, 0);
+            right = glm::vec3(1, 0, 0);
             distanceToTarget = 2;
         }
 
-        Camera(const glm::vec3 &position, const glm::vec3 &center, const glm::vec3 &up)
+        Camera(const glm::vec3& position, const glm::vec3& center, const glm::vec3& up)
         {
             Set(position, center, up);
         }
@@ -27,12 +27,12 @@ namespace implemented
         { }
 
         // Update camera
-        void Set(const glm::vec3 &position, const glm::vec3 &center, const glm::vec3 &up)
+        void Set(const glm::vec3& position, const glm::vec3& center, const glm::vec3& up)
         {
             this->position = position;
-            forward     = glm::normalize(center - position);
-            right       = glm::cross(forward, up);
-            this->up    = glm::cross(right, forward);
+            forward = glm::normalize(center - position);
+            right = glm::cross(forward, up);
+            this->up = glm::cross(right, forward);
         }
 
         void MoveForward(float distance)
@@ -57,7 +57,7 @@ namespace implemented
         void TranslateUpward(float distance)
         {
             // TODO(student): Translate the camera using the `up` vector.
-            position += glm::normalize(up) * distance;
+            position += distance * glm::normalize(up);
         }
 
         void TranslateRight(float distance)
@@ -72,16 +72,15 @@ namespace implemented
             // actually use the projected `right` vector (projected onto the
             // ground plane), which makes more sense because we will keep the
             // same distance from the ground plane.
-            position += glm::normalize(right) * distance;
+            position += distance * glm::normalize(right);
         }
 
         void RotateFirstPerson_OX(float angle)
         {
             // TODO(student): Compute the new `forward` and `up` vectors.
             // Don't forget to normalize the vectors! Use `glm::rotate()`.
-            glm::vec4 aux = glm::rotate(glm::mat4(1.f), angle, right) * glm::vec4(forward, 0);
-            forward = glm::normalize(glm::vec3(aux));
-            up = glm::cross(right, forward);
+            forward = glm::normalize(glm::rotate(glm::mat4(1.f), angle, right) * glm::vec4(forward, 0));
+            up = glm::normalize(glm::cross(right, forward));
         }
 
         void RotateFirstPerson_OY(float angle)
@@ -89,13 +88,9 @@ namespace implemented
             // TODO(student): Compute the new `forward`, `up` and `right`
             // vectors. Use `glm::rotate()`. Don't forget to normalize the
             // vectors!
-            glm::vec4 aux = glm::rotate(glm::mat4(1.f), angle, glm::vec3(0, 1, 0)) * glm::vec4(forward, 0);
-            forward = glm::normalize(glm::vec3(aux));
-
-            aux = glm::rotate(glm::mat4(1.f), angle, glm::vec3(0, 1, 0)) * glm::vec4(right, 0);
-            right = glm::normalize(glm::vec3(aux));
-
-            up = glm::cross(right, forward);
+            forward = glm::normalize(glm::rotate(glm::mat4(1.f), angle, glm::vec3(0, 1, 0)) * glm::vec4(forward, 0));
+            right = glm::normalize(glm::rotate(glm::mat4(1.f), angle, glm::vec3(0, 1, 0)) * glm::vec4(right, 0));
+            up = glm::normalize(glm::cross(right, forward));
         }
 
         void RotateFirstPerson_OZ(float angle)
@@ -103,13 +98,9 @@ namespace implemented
             // TODO(student): Compute the new `right` and `up`. This time,
             // `forward` stays the same. Use `glm::rotate()`. Don't forget
             // to normalize the vectors!
-            glm::vec4 aux = glm::rotate(glm::mat4(1.f), angle, glm::vec3(0, 1, 0)) * glm::vec4(right, 1);
-            right = glm::normalize(glm::vec3(aux));
-
-            aux = glm::rotate(glm::mat4(1.f), angle, forward) * glm::vec4(up, 0);
-            forward = glm::normalize(glm::vec3(aux));
-
-            up = glm::cross(right, forward);
+            right = glm::normalize(glm::rotate(glm::mat4(1.f), angle, forward) * glm::vec4(right, 0));
+            up = glm::normalize(glm::rotate(glm::mat4(1.f), angle, forward) * glm::vec4(up, 0));
+            forward = glm::cross(up, right);
         }
 
         void RotateThirdPerson_OX(float angle)
@@ -150,7 +141,7 @@ namespace implemented
             return position + forward * distanceToTarget;
         }
 
-     public:
+    public:
         float distanceToTarget;
         glm::vec3 position;
         glm::vec3 forward;

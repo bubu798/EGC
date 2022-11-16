@@ -3,25 +3,25 @@
 #include "components/simple_scene.h"
 #include "lab_m1/lab5/lab_camera.h"
 
-#define Z_FAR		(200.f)
-#define Z_NEAR		(.01f)
 
 namespace m1
 {
     class Lab5 : public gfxc::SimpleScene
     {
-     public:
+    public:
         Lab5();
         ~Lab5();
+        bool isOrtho = false;
+        float orthoRight = 8.0f, orthoUp = 4.5f, orthoDown = -4.5f, orthoLeft = -8.0f;
 
         void Init() override;
 
-     private:
+    private:
         void FrameStart() override;
         void Update(float deltaTimeSeconds) override;
         void FrameEnd() override;
 
-        void RenderMesh(Mesh *mesh, Shader *shader, const glm::mat4 &modelMatrix) override;
+        void RenderMesh(Mesh* mesh, Shader* shader, const glm::mat4& modelMatrix) override;
 
         void OnInputUpdate(float deltaTime, int mods) override;
         void OnKeyPress(int key, int mods) override;
@@ -32,16 +32,20 @@ namespace m1
         void OnMouseScroll(int mouseX, int mouseY, int offsetX, int offsetY) override;
         void OnWindowResize(int width, int height) override;
 
-     protected:
-        implemented::Camera *camera;
+    protected:
+        implemented::Camera* camera;
         glm::mat4 projectionMatrix;
         bool renderCameraTarget;
 
         // TODO(student): If you need any other class variables, define them here.
-        GLfloat right;
-        GLfloat left;
-        GLfloat bottom;
-        GLfloat top;
-        GLfloat fov;
+        float fov = RADIANS(60);
+        float aspect = window->props.aspectRatio;
+        float zNear = 0.01f;
+        float zFar = 200.0f;
+
+        float left = -5.0f;
+        float right = 5.0f;
+        float bottom = -5.0f;
+        float top = 5.0f;
     };
 }   // namespace m1
