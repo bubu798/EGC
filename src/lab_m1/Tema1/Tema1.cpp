@@ -189,6 +189,21 @@ void Tema1::Init()
             0, 1, 2,
         };
         CreateMesh("gloante", verticesGloante, indicesGloante);
+
+        //scorMax
+        vector<VertexFormat> verticesScorMax
+        {
+            VertexFormat(glm::vec3(0, 0, 0), glm::vec3(0, 0, 1), glm::vec3(0.2, 0.8, 0.6)),
+            VertexFormat(glm::vec3(0, 8, 0), glm::vec3(0, 0, 1), glm::vec3(0.2, 0.8, 0.6)),
+            VertexFormat(glm::vec3(50, 8, 0), glm::vec3(0, 0, 1), glm::vec3(0.2, 0.8, 0.6)),
+            VertexFormat(glm::vec3(50, 0, 0), glm::vec3(0, 0, 1), glm::vec3(0.2, 0.8, 0.6))
+        };
+        vector<unsigned int> indicesScorMax =
+        {
+            0, 1, 2,
+            0, 2, 3,
+        };
+        CreateMesh("scorMax", verticesScorMax, indicesScorMax);
     }
 }
 
@@ -432,9 +447,9 @@ void Tema1::Update(float deltaTimeSeconds)
         RenderMesh2D(meshes["vieti"], shaders["VertexColor"], modelMatrixVieta2);
         RenderMesh2D(meshes["vieti"], shaders["VertexColor"], modelMatrixVieta3);
         RenderMesh2D(meshes["scor"], shaders["VertexColor"], modelMatrixScor);
-        //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-        RenderMesh2D(meshes["iarba"], shaders["VertexColor"], modelMatrixScorMax);
-        //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        RenderMesh2D(meshes["scorMax"], shaders["VertexColor"], modelMatrixScorMax);
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         RenderMesh2D(meshes["gloante"], shaders["VertexColor"], modelMatrixG1);
         RenderMesh2D(meshes["gloante"], shaders["VertexColor"], modelMatrixG2);
         RenderMesh2D(meshes["gloante"], shaders["VertexColor"], modelMatrixG3);
